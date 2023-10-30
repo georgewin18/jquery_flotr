@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        <div id="barchart" style="width: 600px; height: 350px;"></div>
+        <br>
+        <div id="piechart" style="width: 600px; height: 320px;"></div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
+        <script>
+            window.onload = function() {
+                data1 = [
+                    {data: [[0,151.6]], label: "Jawa"},
+                    {data: [[1,58.6]], label: "Sumatera"},
+                    {data: [[2,19.9]], label: "Sulawesi"},
+                    {data: [[3,16.5]], label: "Kalimantan"},
+                    {data: [[4,15]], label: "Bali dan Nusa Tenggara"},
+                    {data: [[5,8.6]], label: "Maluku dan Papua"}
+                ];
+
+                data2 = [
+                    {data: [[0,56.10]], label: "Jawa"},
+                    {data: [[1,21.68]], label: "Sumatera"},
+                    {data: [[2,7.36]], label: "Sulawesi"},
+                    {data: [[3,6.15]], label: "Kalimantan"},
+                    {data: [[4,5.54]], label: "Bali dan Nusa Tenggara"},
+                    {data: [[5,3.17]], label: "Maluku dan Papua"}
+                ];
+
+                Flotr.draw(document.getElementById("barchart"), data1, {
+                    title: "Sensus Penduduk Indonesia tahun 2020",
+                    bars: {
+                        show: true,
+                    },
+                    yaxis: {
+                        showLabels: true,
+                        tickFormatter: function(val){return val+ "jt"}
+                    },
+                    xaxis: {
+                        showLabels: false,
+                    },
+                    grid: {
+                        horizontalLines : true,
+                        verticalLines: false,
+                    },
+                    legend: {
+                        position : 'ne'
+                    }
+                });
+
+                Flotr.draw(document.getElementById("piechart"), data2, {
+                    pie: {
+                        show: true,
+                    },
+                    yaxis: {
+                        showLabels: false,
+                    },
+                    xaxis: {
+                        showLabels: false,
+                    },
+                    grid: {
+                        horizontalLines : false,
+                        verticalLines: false,
+                    }
+                });
+            };
+        </script>
+    </body>
+</html>
